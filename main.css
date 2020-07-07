@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bus-container {
+  display: flex;
+}
+
+.bus {
+  border: 3px solid #39B8A5;
+  border-radius: 10px;
+  display: flex;
+  position: relative;
+}
+
+.luz_delantera-izquierda, .luz_delantera-derecha {
+  position: absolute;
+  left: -6px;
+  width: 3px;
+  height: 30px;
+  background-color: rgba(255, 217, 0, 0.637);
+}
+
+.luz_trasera-izquierda, .luz_trasera-derecha {
+  position: absolute;
+  right: -6px;
+  width: 3px;
+  height: 30px;
+  background-color: red;
+}
+
+.luz_trasera-izquierda, .luz_delantera-izquierda {
+  bottom: 10%;
+}
+
+.luz_trasera-derecha, .luz_delantera-derecha {
+  top: 10%;
+}
+
+.frontal {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 80px;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.frontal-escaleras {
+  padding-left: 1.5rem;
+}
+
+.escalon {
+  border: 1px solid #cccccc;
+  height: 15px;
+}
+
+.frontal-volante {
+  width: 35px;
+  height: 35px;
+  padding: .4rem;
+  text-align: center;
+  line-height: 35px;
+  transform: rotate(-90deg);
+}
+
+.seats-container {
+  display: flex;
+  flex-direction: column;
+  /* Hor: column, Ver: row-reverse */
+  padding: 1rem;
+}
+
+.seats-fila {
+  display: flex;
+  flex-direction: row;
+  /* Hor: row, Ver: column*/
+}
+
+.seats {
+  display: flex;
+  flex-direction: column-reverse;
+  /* Hor: column-reverse, Ver: row */
+}
+
+.seat {
+  width: 45px;
+  /* Hor: 100%, Ver: 50% */
+  border: 1px solid #cccccc;
+  padding: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s all;
+}
+
+.seat.occupied {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+
+.seats.wc {
+  width: 45px;
+  align-items: center;
+  flex-direction: initial;
+  justify-content: center;
+
+  border: 1px solid #cccccc;
+}
+
+.check__seat.free {
+  background-color: white;
+}
+
+.espacio {
+  width: 100%;
+  height: 100%;
+  margin: 1rem 0;
+  padding: 1rem 1rem;
+  border-radius: 25px;
+  background-color: #e6f6f4;
+  text-align: center;
+}
+
+/* MARCAR SELECCIONADO */
+input:checked[type="checkbox"] + .seat {
+  background-color: #03a9f4;
+  color: white;
+  font-weight: bold;
+}
