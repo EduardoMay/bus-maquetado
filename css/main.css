@@ -6,7 +6,6 @@
 
 .bus-container {
   margin: 2rem auto;
-  width: 40%;
 }
 
 .bus {
@@ -84,8 +83,8 @@
 }
 
 .seats-fila {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
 }
 
 .seats-fila:nth-child(2) {
@@ -98,7 +97,6 @@
 }
 
 .seat {
-  width: 45px;
   margin-bottom: 0;
   border: 1px solid #cccccc;
   padding: 0.5rem;
@@ -148,7 +146,7 @@
 }
 
 
-@media (max-width: 575.98px) {
+@media (max-width: 991.98px) {
   .bus-container {
     width: 70%;
   }
@@ -205,6 +203,11 @@
     grid-template-rows: 1fr;
   }
 
+  .seats-fila {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
   .seats-fila:nth-child(1) {
     grid-row-start: 1;
     grid-column-start: 3;
@@ -244,5 +247,24 @@
 
   .seats.wc svg  {
     transform: rotate(90deg);
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .bus-container {
+    width: 30%;
+  }
+}
+
+
+@media (min-width: 992px) and (max-width: 1399.98px) {
+  .bus-container {
+    width: 55%;
+  }
+}
+
+@media (min-width: 1399.98px) {
+  .bus-container {
+    width: 39%;
   }
 }
