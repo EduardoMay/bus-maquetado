@@ -6,7 +6,7 @@
 
 .bus-container {
   margin: 2rem auto;
-  width: 63%;
+  width: 40%;
 }
 
 .bus {
@@ -99,6 +99,7 @@
 
 .seat {
   width: 45px;
+  margin-bottom: 0;
   border: 1px solid #cccccc;
   padding: 0.5rem;
   cursor: pointer;
@@ -139,10 +140,11 @@
 }
 
 /* MARCAR SELECCIONADO */
-input:checked[type="checkbox"] + .seat {
+.seat.occupied-now {
   background-color: #03a9f4;
   color: white;
   font-weight: bold;
+  cursor: not-allowed;
 }
 
 

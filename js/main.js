@@ -1,5 +1,5 @@
 let dataBus = [
-    { seat: 1, occupied: true },
+    { seat: 1, occupied: false },
     { seat: 2, occupied: false },
     { seat: 3, occupied: false },
     { seat: 4, occupied: true },
@@ -63,6 +63,14 @@ dataBus.forEach(seat => {
     }
 });
 
+const labelElement = document.querySelectorAll(".seat");
+
+labelElement.forEach(element => {
+    element.addEventListener('click', _ => {
+        document.querySelector(`label[data-seat_num='${element.getAttribute("data-seat_num")}']`).classList.add("occupied-now");
+    })
+})
+
 let paxComponent = Vue.extend({
     template: `
     <div class="card-body">
@@ -70,12 +78,16 @@ let paxComponent = Vue.extend({
     <div class="alert alert-info">
       <p class="card-text">Write here the Passengers info.</p>
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12" style="padding: 0">
       <!-- <button type="button" id="add-blocked" class="btn btn-success btn-xs" @click="addPassenger"><i
           class="fa fa-plus"></i></button> -->
       <hr>
       <div class="row" v-for="pax in paxes">
-        <div class="col-md-4 col-xs-12 col-sm-12 form-group">
+        <div class="col-md-2 col-xs-12 col-sm-12 form-group">
+            <input class="form-control text-center" :name="'pax[' + pax.index + '][seat]'"
+            placeholder="seat" id="seat" v-model="pax.seat" disabled>
+        </div>
+        <div class="col-md-5 col-xs-12 col-sm-12 form-group">
           <input type="text" class="form-control" :name="'pax[' + pax.index + '][name]'"
             placeholder="Name" v-model="pax.name">
         </div>
@@ -83,11 +95,7 @@ let paxComponent = Vue.extend({
           <input class="form-control" :name="'pax[' + pax.index + '][category]'"
             placeholder="Category" id="category" v-model="pax.category">
         </div>
-        <div class="col-md-4 col-xs-12 col-sm-12 form-group">
-            <input class="form-control" :name="'pax[' + pax.index + '][seat]'"
-            placeholder="seat" id="seat" v-model="pax.seat">
-        </div>
-        <div class="col-md-2 col-xs-12 col-sm-12 form-group">
+        <div class="col-md-1 col-xs-12 col-sm-12 form-group">
           <button type="button" class="btn btn-danger" @click="deletePax(pax)">
             <i class="fa fa-trash"></i>
           </button>
@@ -113,8 +121,13 @@ let paxComponent = Vue.extend({
                 'category': '',
                 'seat': seat
             });
+
+            document.querySelector(`#seat-${seat}`).disabled = true;
         },
         deletePax: function (pax) {
+            document.querySelector(`#seat-${pax.seat}`).disabled = false;
+            document.querySelector(`label[data-seat_num='${pax.seat}']`).classList.remove("occupied-now");
+
             const index = this.paxes.indexOf(pax);
             this.paxes.splice(index, 1);
             this.reOrdering();
