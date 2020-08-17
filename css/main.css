@@ -1,270 +1,279 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 .bus-container {
-  margin: 2rem auto;
+	margin: 2rem auto;
 }
 
 .bus {
-  border: 3px solid #39B8A5;
-  border-radius: 10px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  position: relative;
+	border: 3px solid #39b8a5;
+	border-radius: 10px;
+	display: grid;
+	grid-template-columns: 1fr auto;
+	position: relative;
 }
 
-.luz_delantera-izquierda, .luz_delantera-derecha {
-  position: absolute;
-  left: -10px;
-  width: 7px;
-  height: 30px;
-  background-color: rgba(255, 217, 0, 1);
-  border-radius: 5px 0 0 5px;
+.luz_delantera-izquierda,
+.luz_delantera-derecha {
+	position: absolute;
+	left: -10px;
+	width: 7px;
+	height: 30px;
+	background-color: rgba(255, 217, 0, 1);
+	border-radius: 5px 0 0 5px;
 }
 
-.luz_trasera-izquierda, .luz_trasera-derecha {
-  position: absolute;
-  right: -10px;
-  width: 7px;
-  height: 30px;
-  background-color: red;
-  border-radius: 0 5px 5px 0;
+.luz_trasera-izquierda,
+.luz_trasera-derecha {
+	position: absolute;
+	right: -10px;
+	width: 7px;
+	height: 30px;
+	background-color: red;
+	border-radius: 0 5px 5px 0;
 }
 
-.luz_trasera-izquierda, .luz_delantera-izquierda {
-  bottom: 10%;
+.luz_trasera-izquierda,
+.luz_delantera-izquierda {
+	bottom: 10%;
 }
 
-.luz_trasera-derecha, .luz_delantera-derecha {
-  top: 10%;
+.luz_trasera-derecha,
+.luz_delantera-derecha {
+	top: 10%;
 }
 
 .frontal {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  width: 80px;
-  padding: 0 0 1rem 1rem;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	width: 80px;
+	padding: 0 0 1rem 1rem;
 }
 
 .frontal-escaleras {
-  padding-left: 1.5rem;
+	padding-left: 1.5rem;
 }
 
 .escalon {
-  border: 1px solid #cccccc;
-  height: 15px;
+	display: block;
+	border: 1px solid #cccccc;
+	height: 15px;
 }
 
 .frontal-volante {
-  width: 35px;
-  height: 35px;
-  padding: .4rem;
-  text-align: center;
-  line-height: 35px;
-  transform: rotate(-90deg);
+	width: 35px;
+	height: 35px;
+	padding: 0.4rem;
+	text-align: center;
+	line-height: 35px;
+	transform: rotate(-90deg);
 }
 
 .frontal-volante svg {
-  width: 35px;
-  height: 35px;
+	width: 35px;
+	height: 35px;
 }
 
 .seats-container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-row: 1fr 1fr 1fr;
-  grid-gap: .5rem;
-  padding: 1rem;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-row: 1fr 1fr 1fr;
+	grid-gap: 0.5rem;
+	padding: 1rem;
 }
 
 .seats-fila {
-  display: grid;
-  grid-template-columns: repeat(14, 1fr);
+	display: grid;
+	grid-template-columns: repeat(14, 1fr);
 }
 
 .seats-fila:nth-child(2) {
-  grid-row-start: 3;
+	grid-row-start: 3;
 }
 
 .seats {
-  display: flex;
-  flex-direction: column-reverse;
+	display: flex;
+	flex-direction: column-reverse;
 }
 
 .seat {
-  margin-bottom: 0;
-  border: 1px solid #cccccc;
-  padding: 0.5rem;
-  cursor: pointer;
-  text-align: center;
-  transition: 0.3s all;
+	margin-bottom: 0;
+	border: 1px solid #cccccc;
+	padding: 0.5rem;
+	cursor: pointer;
+	text-align: center;
+	transition: 0.3s all;
 }
 
 .seat:hover {
-  background-color: royalblue;
+	background-color: royalblue;
+	color: #fff;
 }
 
 .seat.occupied {
-  background-color: #cccccc;
-  cursor: not-allowed;
+	color: initial;
+	background-color: #cccccc;
+	cursor: not-allowed;
 }
 
-
 .seats.wc {
-  width: 45px;
-  align-items: center;
-  flex-direction: initial;
-  justify-content: center;
+	width: 45px;
+	align-items: center;
+	flex-direction: initial;
+	justify-content: center;
 
-  border: 1px solid #cccccc;
+	border: 1px solid #cccccc;
 }
 
 .check__seat.free {
-  background-color: white;
+	background-color: white;
 }
 
 .espacio {
-  width: 100%;
-  height: 100%;
-  padding: 1rem 1rem;
-  border-radius: 25px;
-  background-color: #e6f6f4;
-  text-align: center;
+	width: 100%;
+	height: 100%;
+	padding: 1rem 1rem;
+	border-radius: 25px;
+	background-color: #e6f6f4;
+	text-align: center;
 }
 
 /* MARCAR SELECCIONADO */
 .seat.occupied-now {
-  background-color: #03a9f4;
-  color: white;
-  font-weight: bold;
-  cursor: not-allowed;
+	background-color: #03a9f4;
+	color: white;
+	font-weight: bold;
+	cursor: not-allowed;
 }
 
-
 @media (max-width: 991.98px) {
-  .bus-container {
-    width: 70%;
-  }
+	.bus-container {
+		width: 70%;
+	}
 
-  .luz_delantera-izquierda, .luz_delantera-derecha {
-    top: -10px;
-    left: initial;
-    width: 30px;
-    height: 7px;
-    border-radius: 5px 5px 0 0;
-  }
+	.luz_delantera-izquierda,
+	.luz_delantera-derecha {
+		top: -10px;
+		left: initial;
+		width: 30px;
+		height: 7px;
+		border-radius: 5px 5px 0 0;
+	}
 
-  .luz_delantera-izquierda, .luz_trasera-izquierda {
-    left: 15%;
-  }
-  .luz_delantera-derecha, .luz_trasera-derecha {
-    right: 15%;
-  }
+	.luz_delantera-izquierda,
+	.luz_trasera-izquierda {
+		left: 15%;
+	}
+	.luz_delantera-derecha,
+	.luz_trasera-derecha {
+		right: 15%;
+	}
 
-  .luz_trasera-izquierda, .luz_trasera-derecha {
-    bottom: -10px;
-    width: 30px;
-    height: 7px;
-    top: initial;
-    border-radius: 0 0 5px 5px;
-  }
+	.luz_trasera-izquierda,
+	.luz_trasera-derecha {
+		bottom: -10px;
+		width: 30px;
+		height: 7px;
+		top: initial;
+		border-radius: 0 0 5px 5px;
+	}
 
-  .bus {
-    grid-template-columns: 1fr;
-  }
+	.bus {
+		grid-template-columns: 1fr;
+	}
 
-  .frontal {
-    width: 100%;
-    height: 50px;
-    flex-direction: row-reverse;
-    padding: .5rem 1rem 0 1rem;
-  }
+	.frontal {
+		width: 100%;
+		height: 50px;
+		flex-direction: row-reverse;
+		padding: 0.5rem 1rem 0 1rem;
+	}
 
-  .frontal-escaleras {
-    display: flex;
-  }
+	.frontal-escaleras {
+		display: flex;
+	}
 
-  .escalon {
-    width: 15px;
-    height: 100%;
-  }
+	.escalon {
+		width: 15px;
+		height: 100%;
+	}
 
-  .frontal-volante {
-    transform: initial;
-  }
+	.frontal-volante {
+		transform: initial;
+	}
 
-  .seats-container {
-    grid-template-columns: 1fr 50px 1fr;
-    grid-template-rows: 1fr;
-  }
+	.seats-container {
+		grid-template-columns: 1fr 50px 1fr;
+		grid-template-rows: 1fr;
+	}
 
-  .seats-fila {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
+	.seats-fila {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
 
-  .seats-fila:nth-child(1) {
-    grid-row-start: 1;
-    grid-column-start: 3;
-  }
+	.seats-fila:nth-child(1) {
+		grid-row-start: 1;
+		grid-column-start: 3;
+	}
 
-  .seats-fila:nth-child(2) {
-    grid-row-start: 1;
-    grid-column-start: 1;
-  }
+	.seats-fila:nth-child(2) {
+		grid-row-start: 1;
+		grid-column-start: 1;
+	}
 
-  .seats-fila {
-    flex-direction: column;
-  }
+	.seats-fila {
+		flex-direction: column;
+	}
 
-  .seats {
-    flex-direction: row;
-  }
+	.seats {
+		flex-direction: row;
+	}
 
-  .seat {
-    width: 50%;
-  }
+	.seat {
+		width: 50%;
+		height: 40px;
+	}
 
-  .espacio {
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+	.espacio {
+		height: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-  .espacio * {
-    transform: rotate(-90deg);
-  }
+	.espacio * {
+		transform: rotate(-90deg);
+	}
 
-  .seats.wc {
-    width: 100%;
-  }
+	.seats.wc {
+		width: 100%;
+	}
 
-  .seats.wc svg  {
-    transform: rotate(90deg);
-  }
+	.seats.wc svg {
+		transform: rotate(90deg);
+	}
 }
 
 @media (min-width: 576px) and (max-width: 991.98px) {
-  .bus-container {
-    width: 30%;
-  }
+	.bus-container {
+		width: 30%;
+	}
 }
 
-
 @media (min-width: 992px) and (max-width: 1399.98px) {
-  .bus-container {
-    width: 55%;
-  }
+	.bus-container {
+		width: 55%;
+	}
 }
 
 @media (min-width: 1399.98px) {
-  .bus-container {
-    width: 39%;
-  }
+	.bus-container {
+		width: 39%;
+	}
 }
